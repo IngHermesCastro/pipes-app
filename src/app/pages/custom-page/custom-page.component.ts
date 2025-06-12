@@ -8,6 +8,7 @@ import { heroTextColorPipe } from '../pipes/hero-color-text.pipe';
 import { TitleCasePipe } from '@angular/common';
 import { heroCreatorPipe } from '../pipes/hero-creator.pipe';
 import { heroSortByPipe } from '../pipes/hero-sort-by.pipe';
+import { heroFilterPipe } from '../pipes/hero-filter.pipe';
 
 @Component({
   selector: 'app-custom-page',
@@ -19,7 +20,8 @@ import { heroSortByPipe } from '../pipes/hero-sort-by.pipe';
     TitleCasePipe,
     heroCreatorPipe,
     TitleCasePipe,
-    heroSortByPipe
+    heroSortByPipe,
+    heroFilterPipe,
   ],
   templateUrl: './custom-page.component.html',
 })
@@ -30,6 +32,8 @@ export default class CustomPageComponent {
   heroes = signal(heroes);
 
   sortBy = signal<keyof Hero | null>(null);
+
+  searchQuery = signal('');
 
   //funcion para uppercase de true a false, false a true
 }
